@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rukhsana Shah - IT Support Technician Portfolio</title>
+<meta name="description" content="Rukhsana Shah — IT Support Technician at a U.S. managed service provider. Google Workspace, Microsoft 365, Addigy MDM, Proofpoint, SentinelOne.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0f1e; --bg2:#0f1629; --card:#131b31; --card2:#18213b;
+    --line:rgba(148,163,184,.14); --text:#e6ebf5; --muted:#94a3b8;
+    --a1:#2dd4bf; --a2:#818cf8; --a3:#f472b6; --ok:#34d399;
+    --grad:linear-gradient(120deg,var(--a1),var(--a2) 55%,var(--a3));
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  .mono{font-family:'JetBrains Mono',monospace}
+  .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* background glow */
+  .glow{position:fixed;inset:0;pointer-events:none;z-index:-1;
+    background:radial-gradient(600px 400px at 10% 0%,rgba(45,212,191,.13),transparent 70%),
+               radial-gradient(700px 500px at 95% 20%,rgba(129,140,248,.14),transparent 70%),
+               radial-gradient(600px 500px at 50% 100%,rgba(244,114,182,.08),transparent 70%)}
+  .grid-bg{position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.35;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:56px 56px;mask-image:radial-gradient(ellipse at top,#000 30%,transparent 75%)}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,15,30,.72);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{font-weight:800;font-size:1.15rem;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--grad);color:#0a0f1e}
+  .links{display:flex;gap:30px;list-style:none}
+  .links a{color:var(--muted);font-size:.93rem;font-weight:500;transition:color .2s}
+  .links a:hover{color:var(--text)}
+  .menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:8px 12px;font-size:1.1rem;cursor:pointer}
+
+  section{padding:100px 0}
+  .eyebrow{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--a1);margin-bottom:12px}
+  h2{font-size:clamp(1.9rem,4vw,2.7rem);line-height:1.2;font-weight:800;letter-spacing:-.02em;margin-bottom:14px}
+  .sub{color:var(--muted);max-width:640px;font-size:1.05rem}
+  .head{margin-bottom:52px}
+  .center{text-align:center}.center .sub{margin:0 auto}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:12px;font-weight:600;font-size:.95rem;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer;border:none}
+  .btn-primary{background:var(--grad);color:#0a0f1e}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(129,140,248,.35)}
+  .btn-ghost{border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text)}
+  .btn-ghost:hover{background:rgba(255,255,255,.07);transform:translateY(-2px)}
+
+  /* hero */
+  #hero{padding:80px 0 90px}
+  .hero{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+  .badge{display:inline-flex;align-items:center;gap:10px;padding:7px 15px;border-radius:999px;border:1px solid rgba(52,211,153,.35);background:rgba(52,211,153,.08);color:#a7f3d0;font-size:.85rem;font-weight:500;margin-bottom:26px}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(52,211,153,.6);animation:pulse 2s infinite}
+  @keyframes pulse{70%{box-shadow:0 0 0 10px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+  h1{font-size:clamp(2.4rem,5.6vw,4rem);line-height:1.08;font-weight:800;letter-spacing:-.03em;margin-bottom:22px}
+  .hero p.lead{color:var(--muted);font-size:1.12rem;max-width:580px;margin-bottom:34px}
+  .hero p.lead strong{color:var(--text);font-weight:600}
+  .ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .photo-wrap{position:relative;justify-self:center}
+  .photo-ring{width:300px;height:300px;border-radius:50%;padding:4px;background:var(--grad);animation:float 6s ease-in-out infinite}
+  .photo{width:100%;height:100%;border-radius:50%;background:var(--bg2);display:grid;place-items:center;overflow:hidden;font-size:5rem;font-weight:800}
+  .photo{position:relative}.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  @keyframes float{50%{transform:translateY(-12px)}}
+  .term{position:absolute;bottom:-14px;left:-46px;background:#0b1224;border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--muted);box-shadow:0 18px 40px rgba(0,0,0,.4)}
+  .term b{color:var(--a1);font-weight:500}.term i{color:var(--ok);font-style:normal}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:64px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;text-align:center}
+  .stat .n{font-size:2.2rem;font-weight:800;line-height:1.1}
+  .stat .l{color:var(--muted);font-size:.88rem;margin-top:6px}
+
+  /* cards */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:transform .25s,border-color .25s,background .25s}
+  .card:hover{transform:translateY(-4px);border-color:rgba(129,140,248,.4);background:var(--card2)}
+  .ico{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;font-size:1.4rem;background:rgba(129,140,248,.12);margin-bottom:16px}
+
+  /* about */
+  .about{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+  .about p{color:var(--muted);margin-bottom:18px;font-size:1.03rem}
+  .about p strong{color:var(--text)}
+  .creds{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .creds h4{font-size:1rem;margin-bottom:4px}
+  .creds p{font-size:.88rem;margin:0}
+
+  /* featured */
+  .feature{background:linear-gradient(160deg,rgba(45,212,191,.08),rgba(129,140,248,.06) 50%,transparent),var(--card);border:1px solid var(--line);border-radius:24px;padding:48px}
+  .feature h3{font-size:1.6rem;margin-bottom:14px;letter-spacing:-.01em}
+  .feature>p{color:var(--muted);max-width:820px;margin-bottom:30px}
+  .duties{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:30px}
+  .duty{background:rgba(10,15,30,.5);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .duty h4{font-size:.98rem;margin-bottom:6px}
+  .duty p{color:var(--muted);font-size:.88rem}
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .metric{border-left:3px solid var(--a1);padding:6px 16px}
+  .metric .n{font-size:1.7rem;font-weight:800}
+  .metric .l{color:var(--muted);font-size:.85rem}
+
+  /* timeline */
+  .timeline{display:grid;gap:18px;margin-top:22px}
+  .tl{display:grid;grid-template-columns:200px 1fr;gap:24px}
+  .tl .when{font-family:'JetBrains Mono',monospace;color:var(--a1);font-size:.85rem;padding-top:30px}
+  .tl h3{font-size:1.15rem}
+  .tl .org{color:var(--a2);font-weight:500;font-size:.93rem;margin-bottom:10px}
+  .tl ul{color:var(--muted);font-size:.93rem;padding-left:18px}
+  .tl li{margin-bottom:6px}
+
+  /* projects */
+  .filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+  .pill{padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);font:500 .88rem Inter,sans-serif;cursor:pointer;transition:all .2s}
+  .pill:hover{color:var(--text);border-color:rgba(129,140,248,.5)}
+  .pill.active{background:var(--grad);color:#0a0f1e;border-color:transparent;font-weight:600}
+  .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .proj{display:flex;flex-direction:column}
+  .proj.hide{display:none}
+  .cat{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--a1);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+  .proj h3{font-size:1.15rem;margin-bottom:8px;line-height:1.35}
+  .proj p{color:var(--muted);font-size:.9rem;margin-bottom:16px}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+  .tag{font-size:.74rem;padding:4px 10px;border-radius:7px;background:rgba(129,140,248,.1);color:#c7d2fe;border:1px solid rgba(129,140,248,.2)}
+  .out{color:var(--ok);font-size:.86rem;margin-bottom:16px}
+  .proj .go{margin-top:auto;font-weight:600;font-size:.9rem;color:var(--a1)}
+  .proj .go:hover{text-decoration:underline}
+  .meta{color:var(--muted);font-size:.82rem;margin-top:auto}
+
+  /* skills */
+  .sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .sgrid h3{font-size:1.08rem;margin-bottom:14px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-size:.82rem;padding:6px 12px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid var(--line);color:#cbd5e1}
+
+  /* approach */
+  .agrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .agrid h4{margin-bottom:6px}
+  .agrid p{color:var(--muted);font-size:.9rem}
+  .note{margin-top:26px;background:#0b1224;border:1px solid var(--line);border-radius:14px;padding:22px 26px;font-family:'JetBrains Mono',monospace;font-size:.84rem;color:var(--muted);overflow-x:auto}
+  .note b{color:var(--a2);font-weight:500}
+
+  /* contact */
+  .contact{text-align:center;background:linear-gradient(160deg,rgba(129,140,248,.12),rgba(45,212,191,.06));border:1px solid var(--line);border-radius:28px;padding:64px 28px}
+  .contact .ctas{justify-content:center;margin-top:30px}
+  .langs{margin-top:26px;color:var(--muted);font-size:.9rem}
+  footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:.88rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:980px){
+    .hero,.about{grid-template-columns:1fr}
+    .photo-wrap{order:-1}
+    .photo-ring{width:220px;height:220px}
+    .term{left:auto;right:-10px}
+    .pgrid,.sgrid,.duties{grid-template-columns:1fr 1fr}
+    .agrid,.stats,.metrics{grid-template-columns:1fr 1fr}
+    .tl{grid-template-columns:1fr;gap:0}.tl .when{padding:0 0 8px}
+  }
+  @media (max-width:720px){
+    .links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg2);border-bottom:1px solid var(--line)}
+    .links.open{display:flex}
+    .links a{display:block;padding:14px 24px}
+    .menu-btn{display:block}
+    section{padding:72px 0}
+    .wrap{padding:0 16px}
+    .pgrid,.sgrid,.duties,.creds,.agrid{grid-template-columns:1fr}.stats,.metrics{gap:12px}.stat{padding:18px 10px}
+    .feature{padding:28px 20px}
+    .term{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="glow"></div><div class="grid-bg"></div>
+
+<nav>
+  <div class="wrap">
+    <a href="#hero" class="logo" aria-label="Home">RS</a>
+    <button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.links').classList.toggle('open')">☰</button>
+    <ul class="links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap">
+    <div class="hero">
+      <div class="reveal">
+        <span class="badge"><span class="dot"></span>IT Support Technician · U.S. Managed Service Provider</span>
+        <h1>Keeping Teams <span class="grad-text">Secure, Connected</span> &amp; Productive</h1>
+        <p class="lead">Hi, I'm <strong>Rukhsana Shah</strong> — a Computer Science graduate supporting <strong>8+ client organizations</strong> across creative, agency, legal and retail sectors. I've resolved <strong>850+ helpdesk tickets</strong> across Apple and Windows environments, from onboarding and identity management to email security and endpoint protection.</p>
+        <div class="ctas">
+          <a href="#contact" class="btn btn-primary">Let's Connect →</a>
+          <a href="#projects" class="btn btn-ghost">View Projects</a>
+        </div>
+      </div>
+      <div class="photo-wrap reveal">
+        <div class="photo-ring">
+          <!-- Add your photo as profile.jpg in the same folder. Initials show until then. -->
+          <div class="photo"><img src="profile.jpg" alt="Rukhsana Shah" onerror="this.remove()"><span class="grad-text" id="initials">RS</span></div>
+        </div>
+        <div class="term"><b>$</b> ticket --status<br><i>✓ resolved</i> 850+ · SLA met</div>
+      </div>
+    </div>
+
+    <div class="stats reveal">
+      <div class="stat"><div class="n grad-text" data-count="850" data-suffix="+">0</div><div class="l">Tickets Resolved</div></div>
+      <div class="stat"><div class="n grad-text" data-count="8" data-suffix="+">0</div><div class="l">Client Organizations</div></div>
+      <div class="stat"><div class="n grad-text" data-count="9">0</div><div class="l">Certifications</div></div>
+      <div class="stat"><div class="n grad-text" data-count="112" data-suffix="+">0</div><div class="l">CMS Entries Managed</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="about">
+      <div class="reveal">
+        <span class="eyebrow">About Me</span>
+        <h2>Calm, Clear Support <span class="grad-text">Behind Every Login</span></h2>
+        <p>I work remotely from <strong>Islamabad, Pakistan</strong> on a night shift aligned with U.S. business hours, providing Tier 1/2 support for a managed service provider. My day spans <strong>Google Workspace and Microsoft 365 administration</strong>, SaaS access and licensing, Proofpoint email security, Addigy MDM and SentinelOne.</p>
+        <p>I hold a <strong>Bachelor of Computer Science</strong> from Fatima Jinnah Women University, and I bring a background in web development, UI/UX and QA testing. I'm known for <strong>structured documentation</strong> and replies that non-technical users can follow.</p>
+        <p>Outside work I read fiction, psychology, philosophy and tech, and I enjoy content creation and photography.</p>
+      </div>
+      <div class="creds reveal">
+        <div class="card"><div class="ico">🎓</div><h4>BS Computer Science</h4><p>Fatima Jinnah Women University, 2024</p></div>
+        <div class="card"><div class="ico">🛠️</div><h4>Google IT Support</h4><p>Professional Certificate (v2)</p></div>
+        <div class="card"><div class="ico">☁️</div><h4>Workspace Admin</h4><p>Google Workspace Administrator</p></div>
+        <div class="card"><div class="ico">🛡️</div><h4>Cybersecurity</h4><p>Google · Cisco · Virtual University</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED WORK -->
+<section id="work">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Featured Work</span>
+      <h2>Managed IT Support at <span class="grad-text">TechCierge</span></h2>
+      <p class="sub">IT Support Technician (Tier 1) · Remote, U.S. MSP · Nov 2025 – Present</p>
+    </div>
+    <div class="feature reveal">
+      <h3>End-to-end support for multi-client environments</h3>
+      <p>I handle the full lifecycle of a user's IT, from the first account on day one to the final access audit after offboarding. I do this across several client tenants, each with its own tools, policies and SLAs.</p>
+      <div class="duties">
+        <div class="duty"><h4>👤 User Lifecycle</h4><p>Onboarding and offboarding for staff and freelancers to 30-minute critical SLAs: accounts, licenses, groups, mail forwarding and equipment pickup.</p></div>
+        <div class="duty"><h4>🔐 Identity &amp; Access</h4><p>Google Workspace and M365: aliases, distribution lists, shared drives, OUs, 2SV, Teams and SharePoint, plus SaaS seat management.</p></div>
+        <div class="duty"><h4>📧 Email Security</h4><p>Spoofing, phishing and suspicious-login triage, Proofpoint quarantine and mail flow, and compromised-account response.</p></div>
+        <div class="duty"><h4>💻 Endpoints</h4><p>New-hire Mac setup, Addigy MDM, Apple Business Manager/VPP, PPPC profiles, locked-device resets and SentinelOne deployment.</p></div>
+        <div class="duty"><h4>📊 Monitoring &amp; Reports</h4><p>Dropsuite backup errors, Proofpoint vs. Workspace user comparisons, quarterly Slack external-user reports and 30-day offboarding audits.</p></div>
+        <div class="duty"><h4>🎧 AV &amp; Voice</h4><p>Zoom Rooms/AV, RingCentral VoIP and hardware troubleshooting through Splashtop remote support.</p></div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="n">850+</div><div class="l">Tickets in SuperOps</div></div>
+        <div class="metric"><div class="n">8+</div><div class="l">Client Organizations</div></div>
+        <div class="metric"><div class="n">30 min</div><div class="l">Critical SLA Response</div></div>
+        <div class="metric"><div class="n">Apple + Win</div><div class="l">Mixed Environments</div></div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl reveal">
+        <div class="when">Jul 2025 – Present</div>
+        <div class="card">
+          <h3>Strategic Comms &amp; IT Associate</h3>
+          <div class="org">HIMAT Consulting Private Limited</div>
+          <ul>
+            <li>Designed, built and launched the official HCPL website, and manage its CMS covering 112+ projects, teams and clients.</li>
+            <li>Lead social media (LinkedIn content, branding, Canva) to grow visibility and engagement.</li>
+            <li>Provide Microsoft 365 administration, troubleshooting, licensing and procurement portal support.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl reveal">
+        <div class="when">Jun 2025 – Jul 2025</div>
+        <div class="card">
+          <h3>Intern: UI/UX Designer, Graphic Designer &amp; QA</h3>
+          <div class="org">uExel</div>
+          <ul>
+            <li>Tested functionality, usability and responsiveness, reported bugs, and coordinated design-to-dev handoff.</li>
+            <li>Designed a food ordering website and a video streaming app.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Portfolio</span>
+      <h2>Projects &amp; <span class="grad-text">Certifications</span></h2>
+      <p class="sub">IT operations, web builds, design work, academic projects and the certifications behind them.</p>
+    </div>
+    <div class="filters reveal">
+      <button class="pill active" data-f="all">All</button>
+      <button class="pill" data-f="it">IT Operations</button>
+      <button class="pill" data-f="web">Web Development</button>
+      <button class="pill" data-f="design">UI/UX Design</button>
+      <button class="pill" data-f="ai">AI &amp; Data</button>
+      <button class="pill" data-f="cert">Certifications</button>
+    </div>
+    <div class="pgrid">
+      <div class="card proj reveal" data-c="it">
+        <div class="cat">🛠️ IT Operations</div>
+        <h3>Onboarding &amp; Offboarding Playbook</h3>
+        <p>A repeatable process for provisioning and deprovisioning staff and freelancers across Google Workspace, M365 and SaaS tools.</p>
+        <div class="tags"><span class="tag">Google Workspace</span><span class="tag">M365</span><span class="tag">Slack</span><span class="tag">Adobe CC</span></div>
+        <div class="out">✓ Delivered to 30-minute critical SLAs</div>
+      </div>
+      <div class="card proj reveal" data-c="it">
+        <div class="cat">📊 IT Operations</div>
+        <h3>Recurring Security &amp; Access Reports</h3>
+        <p>Scheduled reports that find gaps: backup errors, mailbox mismatches, external Slack users and leftover access after offboarding.</p>
+        <div class="tags"><span class="tag">Dropsuite</span><span class="tag">Proofpoint</span><span class="tag">Slack</span><span class="tag">Audits</span></div>
+        <div class="out">✓ 30-day offboarding access audits</div>
+      </div>
+      <div class="card proj reveal" data-c="it">
+        <div class="cat">💻 IT Operations</div>
+        <h3>Mac Fleet Setup with Addigy MDM</h3>
+        <p>New-hire machine setup, VPP app deployment, PPPC privacy profiles and SentinelOne rollout through Addigy and Apple Business Manager.</p>
+        <div class="tags"><span class="tag">Addigy</span><span class="tag">ABM / VPP</span><span class="tag">SentinelOne</span><span class="tag">FileVault</span></div>
+        <div class="out">✓ Zero-touch-ready devices</div>
+      </div>
+      <div class="card proj reveal" data-c="web">
+        <div class="cat">🌐 Web Development</div>
+        <h3>HIMAT Consulting Website</h3>
+        <p>Designed, built and launched the company's official website from scratch, with a CMS for projects, teams and clients.</p>
+        <div class="tags"><span class="tag">Web Design</span><span class="tag">CMS</span><span class="tag">Branding</span></div>
+        <div class="out">✓ 112+ CMS entries managed</div>
+        <a class="go" href="https://www.himatconsulting.com/" target="_blank" rel="noopener">Visit Website →</a>
+      </div>
+      <div class="card proj reveal" data-c="design">
+        <div class="cat">🎨 UI/UX Design</div>
+        <h3>AI-Assisted Food Ordering Website</h3>
+        <p>A food ordering web experience designed with AI tools during my internship at uExel.</p>
+        <div class="tags"><span class="tag">UI/UX</span><span class="tag">AI Design</span><span class="tag">Figma</span></div>
+        <a class="go" href="https://tinyurl.com/2rarh89r" target="_blank" rel="noopener">View Design →</a>
+      </div>
+      <div class="card proj reveal" data-c="design">
+        <div class="cat">🎬 UI/UX Design</div>
+        <h3>Video Streaming App</h3>
+        <p>Mobile app design for a video streaming platform, covering browsing, playback and user flows.</p>
+        <div class="tags"><span class="tag">Mobile UI</span><span class="tag">Prototyping</span><span class="tag">Figma</span></div>
+        <a class="go" href="https://tinyurl.com/yf7dnkt5" target="_blank" rel="noopener">View Design →</a>
+      </div>
+      <div class="card proj reveal" data-c="ai">
+        <div class="cat">🧠 AI &amp; Data</div>
+        <h3>Skin Cancer Detection App</h3>
+        <p>An academic project that uses deep learning to classify skin lesion images and flag possible skin cancer.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Deep Learning</span><span class="tag">CNN</span></div>
+        <div class="out">✓ Academic project</div>
+      </div>
+      <div class="card proj reveal" data-c="web">
+        <div class="cat">🍔 Web Development</div>
+        <h3>Food Ordering Website</h3>
+        <p>A responsive site built with HTML and CSS, prototyped first on paper and then in Figma.</p>
+        <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Figma</span></div>
+        <div class="out">✓ Academic project</div>
+      </div>
+      <div class="card proj reveal" data-c="web">
+        <div class="cat">🎮 Web Development</div>
+        <h3>Hangman Game</h3>
+        <p>The classic word-guessing game, built as a programming exercise.</p>
+        <div class="tags"><span class="tag">JavaScript</span><span class="tag">Game Logic</span></div>
+        <div class="out">✓ Academic project</div>
+      </div>
+
+      <div class="card proj reveal" data-c="cert"><div class="cat">📜 Certification</div><h3>Google IT Support Professional Certificate (v2)</h3><div class="meta">Google · Coursera</div></div>
+      <div class="card proj reveal" data-c="cert"><div class="cat">📜 Certification</div><h3>Google Workspace Administrator</h3><div class="meta">Google · Coursera</div></div>
+      <div class="card proj reveal" data-c="cert"><div class="cat">📜 Certification</div><h3>Technical Support Fundamentals</h3><div class="meta">Google · Coursera</div></div>
+      <div class="card proj reveal" data-c="cert"><div class="cat">📜 Certification</div><h3>The Bits and Bytes of Computer Networking</h3><div class="meta">Google · Coursera</div></div>
+      <div class="card proj reveal" data-c="cert"><div class="cat">📜 Certification</div><h3>Foundations of Cybersecurity</h3><div class="meta">Google · Coursera</div></div>
+      <div class="card proj reveal" data-c="cert"><div class="cat">📜 Certification</div><h3>Introduction to Cybersecurity</h3><div class="meta">Cisco</div></div>
+      <div class="card proj reveal" data-c="cert"><div class="cat">📜 Certification</div><h3>Cyber Security Entry Level</h3><div class="meta">Virtual University</div></div>
+      <div class="card proj reveal" data-c="cert"><div class="cat">📜 Certification</div><h3>Linux: Introduction to Shell Scripting for DevOps</h3><div class="meta">Coursera</div></div>
+      <div class="card proj reveal" data-c="cert"><div class="cat">📜 Certification</div><h3>Python for Data Science, AI &amp; Development</h3><div class="meta">IBM · Coursera</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="eyebrow">Technical Expertise</span>
+      <h2>Core <span class="grad-text">Technologies</span></h2>
+      <p class="sub">The platforms and tools I use every day to keep users productive and tenants secure.</p>
+    </div>
+    <div class="sgrid">
+      <div class="card reveal"><div class="ico">👤</div><h3>Identity &amp; Access</h3><div class="chips"><span class="chip">Google Workspace</span><span class="chip">Microsoft 365</span><span class="chip">Teams</span><span class="chip">SharePoint</span><span class="chip">2-Step Verification</span><span class="chip">OUs &amp; Groups</span></div></div>
+      <div class="card reveal"><div class="ico">📧</div><h3>Email Security</h3><div class="chips"><span class="chip">Proofpoint Essentials</span><span class="chip">Phishing Triage</span><span class="chip">Spoofing Alerts</span><span class="chip">Account Recovery</span><span class="chip">Dropsuite Backup</span></div></div>
+      <div class="card reveal"><div class="ico">💻</div><h3>Endpoint &amp; Devices</h3><div class="chips"><span class="chip">Addigy MDM</span><span class="chip">Apple Business Manager</span><span class="chip">VPP</span><span class="chip">SentinelOne</span><span class="chip">FileVault</span><span class="chip">Splashtop</span></div></div>
+      <div class="card reveal"><div class="ico">🧩</div><h3>SaaS Administration</h3><div class="chips"><span class="chip">Slack</span><span class="chip">Figma</span><span class="chip">Adobe CC</span><span class="chip">Zoom</span><span class="chip">HubSpot</span><span class="chip">Harvest</span><span class="chip">Frame.io</span><span class="chip">Dropbox Sign</span></div></div>
+      <div class="card reveal"><div class="ico">🎧</div><h3>Helpdesk &amp; Ops</h3><div class="chips"><span class="chip">SuperOps</span><span class="chip">SLA Prioritization</span><span class="chip">SOPs</span><span class="chip">Escalation</span><span class="chip">Zoom Rooms / AV</span><span class="chip">RingCentral VoIP</span></div></div>
+      <div class="card reveal"><div class="ico">🌐</div><h3>Web, Design &amp; QA</h3><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Python</span><span class="chip">Figma</span><span class="chip">Canva</span><span class="chip">Wix</span><span class="chip">Selenium</span><span class="chip">Playwright</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section id="approach">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="eyebrow">How I Work</span>
+      <h2>Principles Behind <span class="grad-text">Every Ticket</span></h2>
+      <p class="sub">Good support means fixing the problem, explaining it clearly, and leaving a record the next technician can use.</p>
+    </div>
+    <div class="agrid">
+      <div class="card reveal"><div class="ico">⏱️</div><h4>SLA-Driven</h4><p>I triage by impact and urgency, and critical requests get a response within 30 minutes.</p></div>
+      <div class="card reveal"><div class="ico">📝</div><h4>Documented</h4><p>Every resolution is written in a structured Who/What/When/Where/Why/How format.</p></div>
+      <div class="card reveal"><div class="ico">💬</div><h4>Client-Friendly</h4><p>I write in plain language that non-technical users can act on.</p></div>
+      <div class="card reveal"><div class="ico">🔒</div><h4>Security-First</h4><p>Least-privilege access, prompt offboarding and alert triage come before convenience.</p></div>
+    </div>
+    <div class="note reveal">
+<b>WHO</b>   → user / requester &nbsp;·&nbsp; <b>WHAT</b> → issue &amp; impact &nbsp;·&nbsp; <b>WHEN</b> → timeline<br>
+<b>WHERE</b> → system / tenant &nbsp;·&nbsp; <b>WHY</b> → root cause &nbsp;·&nbsp; <b>HOW</b>  → steps taken &amp; outcome
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact reveal">
+      <span class="eyebrow">Get In Touch</span>
+      <h2>Let's <span class="grad-text">Work Together</span></h2>
+      <p class="sub" style="margin:0 auto">Open to conversations about IT support, systems administration and MSP roles. I'm based in Islamabad and work U.S. hours.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="mailto:rukhsana.shah03@gmail.com">✉️ Email Me</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/rukhsana-s-200a4a201/" target="_blank" rel="noopener">💼 LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener">🐙 GitHub</a>
+      </div>
+      <p class="langs">Languages: English · Urdu · Shina</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Rukhsana Shah. All rights reserved.</span>
+    <span class="mono">Google IT Support Certified • Workspace Admin • BS Computer Science</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  // Close mobile menu on click
+  document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.links').classList.remove('open')));
+
+  // Project filters
+  const pills=document.querySelectorAll('.pill'), projs=document.querySelectorAll('.proj');
+  pills.forEach(p=>p.addEventListener('click',()=>{
+    pills.forEach(x=>x.classList.remove('active')); p.classList.add('active');
+    const f=p.dataset.f;
+    projs.forEach(c=>{const show=f==='all'||c.dataset.c===f;c.classList.toggle('hide',!show);if(show)c.classList.add('in')});
+  }));
+
+  // Reveal on scroll + counters
+  const count=el=>{
+    const end=+el.dataset.count, suf=el.dataset.suffix||'', t0=performance.now(), dur=1400;
+    const step=t=>{const k=Math.min((t-t0)/dur,1);el.textContent=Math.round(end*(1-Math.pow(1-k,3)))+suf;if(k<1)requestAnimationFrame(step)};
+    requestAnimationFrame(step);
+  };
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting) return;
+    e.target.classList.add('in');
+    e.target.querySelectorAll('[data-count]').forEach(count);
+    io.unobserve(e.target);
+  }),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
